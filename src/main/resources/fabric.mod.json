@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "faster-minecarts",
+	"version": "${version}",
+	"name": "Safe and Faster Minecarts",
+	"description": "Introduce experimental function \"Minecart Improvements\" to particular minecarts safely, compatible with vanilla minecart mechanism!",
+	"authors": [
+		"Lyscoria"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/faster-minecarts/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.lyscoria.fasterminecarts.FasterMinecarts"
+		],
+		"fabric-datagen": [
+			"com.lyscoria.fasterminecarts.FasterMinecartsDataGenerator"
+		],
+		"client": [
+			"com.lyscoria.fasterminecarts.FasterMinecartsClient"
+		]
+	},
+	"mixins": [
+		"faster-minecarts.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.21.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
