@@ -63,7 +63,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements MaxS
 
     @Inject(method = "tick", at = @At("HEAD"))
     void _tick(CallbackInfo ci) {
-        World world = this.getWorld();
+        World world = this.getEntityWorld();
         if (world.isClient()) return;
         if (this.hasPassengers() && this.isOnRail()) {
             BlockPos minecartPos = this.getRailOrMinecartPos();
@@ -91,7 +91,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements MaxS
     @Unique
     private void checkSign(BlockPos pos) {
         AbstractMinecartEntity self = (AbstractMinecartEntity) (Object) this;
-        BlockEntity blockEntity = this.getWorld().getBlockEntity(pos);
+        BlockEntity blockEntity = this.getEntityWorld().getBlockEntity(pos);
         Text[] texts;
         if (blockEntity instanceof SignBlockEntity signBlockEntity) {
             texts = signBlockEntity.getText(true).getMessages(false);
@@ -125,7 +125,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity implements MaxS
 
     @Unique
     private void sendControllerUpdateToClients(int controllerType, double maxSpeed) {
-        if (this.getWorld() instanceof ServerWorld serverWorld) {
+        if (this.getEntityWorld() instanceof ServerWorld serverWorld) {
             var payload = new MinecartControllerUpdatePayload(this.getId(), controllerType, maxSpeed);
             for (ServerPlayerEntity player : serverWorld.getPlayers()) {
                 ServerPlayNetworking.send(player, payload);

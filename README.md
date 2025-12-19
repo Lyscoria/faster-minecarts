@@ -30,4 +30,4 @@ Any **occupied minecart** (carrying a passenger or entity) passing near this sig
 
 **基于 Fabric。** 此模组必须**在服务端和客户端同时安装**才能生效。
 
-> **性能提示：** 由于载客矿车每游戏刻都会检查告示牌，在存在大量此类矿车的区域可能会对性能产生影响。
+> **性能提示：** 由于载客矿车每游戏刻都会检查告示牌，可能会对性能产生影响。
